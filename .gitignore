@@ -1,0 +1,9 @@
+.env
+env_set.php
+config.php
+database.php
+/vendor/
+/node_modules/
+/storage/
+/uploads/
+/logs/
