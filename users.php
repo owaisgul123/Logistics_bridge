@@ -161,18 +161,17 @@
                         <div class="form-group col-md-6">
                             <label for="role" style="margin: 8px 0px;">Role</label>
                             <select class="form-control" id="role_id" name="role_id">
-                                <option value="">Select Role</option>
-                                <option value=1>Admin</option>
-                                <option value=2>Trucking Company</option>
+                                 <option >Select Role</option>
+                                <!--<option value=2>Trucking Company</option>
                                 <option value=3>Clearing Agent</option>
-                                <option value=4>Operational Manager</option>
+                                <option value=4>Operational Manager</option> -->
                                 <!-- <option value="Order">Order</option>
                                 <option value="Logistics">Logistics</option> -->
                             </select>
                         </div>
 
                         <!-- Specific Roles -->
-                       
+
 
                         <!-- User Info Table Fields -->
                         <div class="form-group col-md-6">
@@ -458,9 +457,9 @@
                                         document.getElementById("insert").disabled = false;
 
 
-                                        
 
-                                            //     location.reload();
+
+                                        //     location.reload();
 
 
 
@@ -512,7 +511,7 @@
 
 
                 function fetchtable() {
-
+                  
                     var requestOptions = {
                         method: 'GET',
                         redirect: 'follow'
@@ -654,22 +653,24 @@
                 function load_all_select() {
 
                     $.ajax({
-                        url: '<?php echo $api_url2; ?>get/get_tm.php?key=03201232927',
+                        url: '<?php echo $api_url2; ?>get/roles.php?key=03201232927',
                         method: 'GET',
                         dataType: 'json',
-                        success: function(data) {
-                            $('#zm').empty();
-
+                        success: function(response) {
+                            // $('#role_id').empty();
+                            // response = JSON.parse(response);
+                            console.log(response);
+                            data = response['data'];
                             // Iterate through the data and append options to the select element
                             $.each(data, function(index, item) {
-                                $('#tm').append($('<option>', {
+                                $('#role_id').append($('<option>', {
                                     value: item.id,
                                     text: item.name
                                 }));
                             });
 
                             // Refresh the Select2 element to display the newly added options
-                            $('#tm').trigger('change.select2');
+                            $('#role_id').trigger('change.select2');
                         },
                         error: function(error) {
                             console.error('Error fetching data:', error);
