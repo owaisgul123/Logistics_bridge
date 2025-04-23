@@ -33,6 +33,21 @@ curl_close($curl);
 
 $data = json_decode($response, true);
 $status = $data['status'];
+$rolePrivileges = [
+    1 => "Admin",
+    2 => "Trucking Company",
+    3 => "Clearing Agent",
+    4 => "Operational Manager",
+    5 => "Importer",
+    6 => "Exporter",
+    7 => "Freight Forwarder",
+    8 => "Master User",
+    9 => "Order Booker",
+    10 => "Accounts",
+    11 => "Manager",
+    12 => "Transport Cordinater"
+];
+
 // Access elements using array notation
 //  $result = $data['result'];
    
@@ -42,12 +57,15 @@ $status = $data['status'];
    
 
     $_SESSION['email'] = $data_res['email'];
+    $_SESSION['name'] = $data_res['name'];
     $_SESSION['user_id'] = $data_res['id'];
     $_SESSION['user_name'] = $data_res['name'];
     $_SESSION['role_id'] = $data_res['role_id'];
-    $_SESSION['privilege'] = $data_res['role_id'] == 1 ? "Admin" : "Other";
+    $_SESSION['parent_id'] = $data_res['parent_id'];
+    $role_id = (int) $data_res['role_id'];
+    $_SESSION['privilege'] = isset($rolePrivileges[$role_id]) ? $rolePrivileges[$role_id] : "Other";
 
-   
+    // echo "privilege " . $_SESSION['privilege'];
     // if ($status != '1') {
     //     echo 2;
     // } else {

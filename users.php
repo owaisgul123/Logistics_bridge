@@ -243,6 +243,7 @@
 
                         <div class="col-12">
                             <input type="hidden" name="row_id" id="row_id" value="0">
+                            <input type="hidden" name="parent_id" id="parent_id" value="<?php echo $_SESSION['user_id'] ?>">
 
 
                         </div>
@@ -526,14 +527,14 @@
 
                             table.clear().draw();
                             $.each(response, function(index, data) {
-                                let priv = data.role_id == 1 ? "Admin" : "Company";
+                                // let priv = data.role_id == 1 ? "Admin" : "Company";
 
                                 table.row.add([
                                     index + 1,
                                     data.name,
                                     data.email,
                                     '********',
-                                    priv,
+                                    data.privilege,
                                     data.phone,
                                     // '<button type="button"id="edit" name="edit" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"  onclick="editData(' +
                                     // data.id +
@@ -776,7 +777,6 @@
                                 document.getElementById('password').value = data.description;
                                 document.getElementById('confirm_password').value = data.description;
                                 document.getElementById('number').value = data.phone;
-                                document.getElementById('role_id').value = role;
                                 document.getElementById('address_ho').value = data.address_ho;
                                 document.getElementById('address_1').value = data.address_1;
                                 document.getElementById('address_2').value = data.address_2;
@@ -793,6 +793,7 @@
                                 document.getElementById('telegram').value = data.telegram;
                                 document.getElementById('location').value = data.location;
                                 document.getElementById('row_id').value = data.id;
+                                $('#role_id').val(data.role_id).trigger('change');
                                 // load_all_select()
                             }
                         }
