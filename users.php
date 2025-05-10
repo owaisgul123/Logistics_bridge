@@ -169,6 +169,17 @@
                                 <option value="Logistics">Logistics</option> -->
                             </select>
                         </div>
+                        <div class="form-group col-md-6">
+                            <label for="role" style="margin: 8px 0px;">Role</label>
+                            <select class="form-control" id="country" name="country_id">
+                                 <option >Select Country</option>
+                                <!--<option value=2>Trucking Company</option>
+                                <option value=3>Clearing Agent</option>
+                                <option value=4>Operational Manager</option> -->
+                                <!-- <option value="Order">Order</option>
+                                <option value="Logistics">Logistics</option> -->
+                            </select>
+                        </div>
 
                         <!-- Specific Roles -->
 
@@ -679,23 +690,25 @@
                     });
 
                     $.ajax({
-                        url: '<?php echo $api_url2; ?>get/get_zm.php?key=03201232927',
+                        url: '<?php echo $api_url2; ?>get/all_countries.php?key=03201232927',
                         method: 'GET',
                         dataType: 'json',
-                        success: function(data) {
+                        success: function(response) {
                             // $('#zm').empty(); 
-                            console.log('ZM')
-                            console.log(data)
+                            // console.log('ZM')
+                            // console.log(data)
                             // Iterate through the data and append options to the select element
+                            data = response['data'];
+
                             $.each(data, function(index, item) {
-                                $('#zm').append($('<option>', {
+                                $('#country').append($('<option>', {
                                     value: item.id,
                                     text: item.name
                                 }));
                             });
 
                             // Refresh the Select2 element to display the newly added options
-                            $('#zm').trigger('change.select2');
+                            $('#country').trigger('change.select2');
                         },
                         error: function(error) {
                             console.error('Error fetching data:', error);
@@ -793,7 +806,9 @@
                                 document.getElementById('telegram').value = data.telegram;
                                 document.getElementById('location').value = data.location;
                                 document.getElementById('row_id').value = data.id;
+
                                 $('#role_id').val(data.role_id).trigger('change');
+                                $('#country_id').val(data.country_id).trigger('change');
                                 // load_all_select()
                             }
                         }
