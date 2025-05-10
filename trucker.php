@@ -9,7 +9,7 @@
 
     <meta charset="utf-8" />
     <title>
-        Trucker |
+        Vehicles |
         <?php echo $_SESSION['user_name']; ?>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -86,8 +86,8 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center">S.No</th>
-                                        <th class="text-center">Prime Mover Reg No</th>
                                         <th class="text-center">Trailer Reg No</th>
+                                        <!-- <th class="text-center">Prime Mover Reg No</th>
                                         <th class="text-center">Country of Registration</th>
                                         <th class="text-center">Registration Document</th>
                                         <th class="text-center">Picture</th>
@@ -97,7 +97,7 @@
                                         <th class="text-center">Cooling Capacity</th>
                                         <th class="text-center">Carrying Capacity</th>
                                         <th class="text-center">Volume</th>
-                                        <th class="text-center">No of Axles</th>
+                                        <th class="text-center">No of Axles</th> -->
                                         <th class="text-center">Owned By</th>
                                         <th class="text-center">Created By</th>
                                         <th class="text-center">Delete</th>
@@ -145,11 +145,11 @@
                 <form method="post" id="insert_form" enctype="multipart/form-data">
                     <div class="row mb-4">
                         <!-- Prime Mover Reg No -->
-                        <div class="form-group col-md-6">
+                        <!-- <div class="form-group col-md-6">
                             <label for="prime_mover_reg_no" style="margin: 8px 0px;">Prime Mover Reg No</label>
                             <input type="text" class="form-control" id="prime_mover_reg_no" name="prime_mover_reg_no"
                                 placeholder="Enter Prime Mover Reg No" required>
-                        </div>
+                        </div> -->
                         <!-- Trailer Reg No -->
                         <div class="form-group col-md-6">
                             <label for="trailer_reg_no" style="margin: 8px 0px;">Trailer Reg No</label>
@@ -158,92 +158,92 @@
                         </div>
 
                         <!-- Country of Registration -->
-                        <div class="form-group col-md-6">
+                        <!-- <div class="form-group col-md-6">
                             <label for="country_of_registration" style="margin: 8px 0px;">Country of
                                 Registration</label>
                             <input type="text" class="form-control" id="country_of_registration"
                                 name="country_of_registration" placeholder="Enter Country of Registration" required>
-                        </div>
+                        </div> -->
                         <!-- Make -->
-                        <div class="form-group col-md-6">
+                        <!-- <div class="form-group col-md-6">
                             <label for="make" style="margin: 8px 0px;">Make</label>
                             <input type="text" class="form-control" id="make" name="make" placeholder="Enter Make"
                                 required>
-                        </div>
+                        </div> -->
                         <!-- Model -->
-                        <div class="form-group col-md-6">
+                        <!-- <div class="form-group col-md-6">
                             <label for="model" style="margin: 8px 0px;">Model</label>
                             <input type="text" class="form-control" id="model" name="model" placeholder="Enter Model"
                                 required>
-                        </div>
+                        </div> -->
                         <!-- Load Compartment Type -->
-                        <div class="form-group col-md-6">
+                        <!-- <div class="form-group col-md-6">
                             <label for="load_compartment_type" style="margin: 8px 0px;">Load Compartment Type</label>
                             <input type="text" class="form-control" id="load_compartment_type"
                                 name="load_compartment_type" placeholder="Enter Load Compartment Type" required>
-                        </div>
+                        </div> -->
                         <!-- Cooling Capacity -->
-                        <div class="form-group col-md-6">
+                        <!-- <div class="form-group col-md-6">
                             <label for="cooling_capacity" style="margin: 8px 0px;">Cooling Capacity</label>
                             <input type="text" class="form-control" id="cooling_capacity" name="cooling_capacity"
                                 placeholder="Enter Cooling Capacity" required>
-                        </div>
+                        </div> -->
                         <!-- Carrying Capacity -->
-                        <div class="form-group col-md-6">
+                        <!-- <div class="form-group col-md-6">
                             <label for="carrying_capacity" style="margin: 8px 0px;">Carrying Capacity</label>
                             <input type="text" class="form-control" id="carrying_capacity" name="carrying_capacity"
                                 placeholder="Enter Carrying Capacity" required>
-                        </div>
+                        </div> -->
                         <!-- Volume -->
-                        <div class="form-group col-md-6">
+                        <!-- <div class="form-group col-md-6">
                             <label for="volume" style="margin: 8px 0px;">Volume</label>
                             <input type="text" class="form-control" id="volume" name="volume" placeholder="Enter Volume"
                                 required>
-                        </div>
+                        </div> -->
                         <!-- No of Axles -->
-                        <div class="form-group col-md-6">
+                        <!-- <div class="form-group col-md-6">
                             <label for="no_of_axles" style="margin: 8px 0px;">No of Axles</label>
                             <input type="text" class="form-control" id="no_of_axles" name="no_of_axles"
                                 placeholder="Enter No of Axles" required>
-                        </div>
+                        </div> -->
                         <!-- Owned By -->
-                        <div class="form-group col-md-6">
+                        <!-- <div class="form-group col-md-6">
                             <label for="owned_by" style="margin: 8px 0px;">Owned By</label>
                             <input type="text" class="form-control" id="owned_by" name="owned_by"
                                 placeholder="Enter Owner Name" required>
-                        </div>
-                        <div class="form-group col-md-4">
+                        </div> -->
+                        <!-- <div class="form-group col-md-4">
 
                             <label for="fileInput2" id="fileInputLabel2">Vehicle Document</label></br>
                             <input type="file" id="fileInput2" accept=".pdf" name='registration_document' required>
-                            <input type="hidden" id="registration_document_hidden" name="registration_document_hidden">
+                            <input type="hidden" id="registration_document_hidden" name="registration_document_hidden"> -->
 
-                            <div id="dropArea2">
+                            <!-- <div id="dropArea2">
                                 <p>Drag and drop , Vechicle Documents </p>
-                                <!-- <div id="imageContainer2">
+                                <div id="imageContainer2">
         <i id="removeButton2" class="fas fa-times-circle"></i>
-    </div> -->
-                                <!-- <img id="imagePreview2" src="" alt="Image Preview"> -->
+    </div>
+                                <img id="imagePreview2" src="" alt="Image Preview">
 
-                            </div>
+                            </div> -->
 
 
-                        </div>
+                        <!-- </div> -->
 
-                        <div class="form-group col-md-4">
+                        <!-- <div class="form-group col-md-4">
                             <label for="fileInput" id="fileInputLabel">Vechicle Picture</label> </br>
                             <input type="file" id="fileInput" name='picture' accept="image/*" required>
                             <input type="hidden" id="picture_hidden" name="picture_hidden">
                             <div id="dropArea">
                                 <p>Drag and drop , or click to select an image. Image must be 800x600</p>
-                                <!-- <div id="imageContainer">
+                                <div id="imageContainer">
                                     <i id="removeButton" class="fas fa-times-circle"></i>
-                                </div> -->
+                                </div>
                                 <img id="imagePreview" src="" alt="Image Preview">
 
                             </div>
 
-                        </div>
+                        </div> -->
 
                         <!-- Created By
                         <div class="form-group col-md-6">
@@ -258,6 +258,7 @@
                         <div class="col-12">
                             <input type="hidden" name="row_id" id="row_id" value="0">
                             <input type="hidden" name="created_by" id="" value="<?php echo $_SESSION['user_id'] ?>">
+                            <input type="hidden" name="owned_by" id="" value="<?php echo $_SESSION['user_id'] ?>">
 
                         </div>
                     </div>
@@ -276,34 +277,34 @@
             $(document).ready(function() {
                 // vehicle picture 
 
-                const dropArea = document.getElementById('dropArea');
-                const fileInput = document.getElementById('fileInput');
-                const fileInputLabel = document.getElementById('fileInputLabel');
-                const imageContainer = document.getElementById('imageContainer');
-                const imagePreview = document.getElementById('imagePreview');
-                const removeButton = document.getElementById('removeButton');
+                // const dropArea = document.getElementById('dropArea');
+                // const fileInput = document.getElementById('fileInput');
+                // const fileInputLabel = document.getElementById('fileInputLabel');
+                // const imageContainer = document.getElementById('imageContainer');
+                // const imagePreview = document.getElementById('imagePreview');
+                // const removeButton = document.getElementById('removeButton');
 
-                dropArea.addEventListener('dragover', (event) => {
-                    event.preventDefault();
-                    dropArea.style.border = '2px solid #000';
-                });
+                // dropArea.addEventListener('dragover', (event) => {
+                //     event.preventDefault();
+                //     dropArea.style.border = '2px solid #000';
+                // });
 
-                dropArea.addEventListener('dragleave', () => {
-                    dropArea.style.border = '2px dashed #ccc';
-                });
+                // dropArea.addEventListener('dragleave', () => {
+                //     dropArea.style.border = '2px dashed #ccc';
+                // });
 
-                dropArea.addEventListener('drop', (event) => {
-                    event.preventDefault();
-                    dropArea.style.border = '2px dashed #ccc';
+                // dropArea.addEventListener('drop', (event) => {
+                //     event.preventDefault();
+                //     dropArea.style.border = '2px dashed #ccc';
 
-                    const selectedFile = event.dataTransfer.files[0];
-                    processImage(selectedFile);
-                });
+                //     const selectedFile = event.dataTransfer.files[0];
+                //     processImage(selectedFile);
+                // });
 
-                fileInput.addEventListener('change', () => {
-                    const selectedFile = fileInput.files[0];
-                    processImage(selectedFile);
-                });
+                // fileInput.addEventListener('change', () => {
+                //     const selectedFile = fileInput.files[0];
+                //     processImage(selectedFile);
+                // });
 
                 // removeButton.addEventListener('click', () => {
                 //     imageContainer.style.display = 'none';
@@ -356,10 +357,10 @@
 
                 // $('.js-example-basic-multiple').select2();
                 // image 
-                fileInput2.addEventListener('change', () => {
-                    const selectedFile2 = fileInput2.files[0];
-                    processImage2(selectedFile2);
-                });
+                // fileInput2.addEventListener('change', () => {
+                //     const selectedFile2 = fileInput2.files[0];
+                //     processImage2(selectedFile2);
+                // });
 
                 // removeButton2.addEventListener('click', () => {
                 //     imageContainer2.style.display = 'none';
@@ -554,7 +555,7 @@
                         var data = new FormData(this);
 
                         $.ajax({
-                            url: "<?php echo $api_url2; ?>update/update_user.php",
+                            url: "<?php echo $api_url2; ?>update/update_vehicle.php",
                             cache: false,
                             contentType: false,
                             processData: false,
@@ -668,50 +669,50 @@
                             console.log(response);
                             response = response['data'];
                             // console.log(response[0]['title']);
-                            $('#prime_mover_reg_no').val(response[0]['prime_mover_reg_no']);
                             $('#trailer_reg_no').val(response[0]['trailer_reg_no']);
-                            $('#country_of_registration').val(response[0]['country_of_registration']);
-                            $('#make').val(response[0]['make']);
-                            $('#model').val(response[0]['model']);
-                            $('#load_compartment_type').val(response[0]['load_compartment_type']);
-                            $('#cooling_capacity').val(response[0]['cooling_capacity']);
-                            $('#carrying_capacity').val(response[0]['carrying_capacity']);
-                            $('#volume').val(response[0]['volume']);
-                            $('#no_of_axles').val(response[0]['no_of_axles']);
+                            // $('#prime_mover_reg_no').val(response[0]['prime_mover_reg_no']);
+                            // $('#country_of_registration').val(response[0]['country_of_registration']);
+                            // $('#make').val(response[0]['make']);
+                            // $('#model').val(response[0]['model']);
+                            // $('#load_compartment_type').val(response[0]['load_compartment_type']);
+                            // $('#cooling_capacity').val(response[0]['cooling_capacity']);
+                            // $('#carrying_capacity').val(response[0]['carrying_capacity']);
+                            // $('#volume').val(response[0]['volume']);
+                            // $('#no_of_axles').val(response[0]['no_of_axles']);
                             $('#owned_by').val(response[0]['owned_by']);
-                            $('#picture_hidden').val(response[0]['picture']);
-                            $('#registration_document_hidden').val(response[0]['registration_document']);
+                            // $('#picture_hidden').val(response[0]['picture']);
+                            // $('#registration_document_hidden').val(response[0]['registration_document']);
 
-                            document.getElementById("imagePreview").src = ""
+                            // document.getElementById("imagePreview").src = ""
                             $('#row_id').val(response[0]['id']);
 
-                            var filelogo = $('#fileInput2')[0];
-                            var filebanner = $('#fileInput')[0];
-                            if (filelogo.files.length === 0) {
-                                filelogo.removeAttribute('required')
+                            // var filelogo = $('#fileInput2')[0];
+                            // var filebanner = $('#fileInput')[0];
+                            // if (filelogo.files.length === 0) {
+                            //     filelogo.removeAttribute('required')
 
-                            }
-                            if (filebanner.files.length === 0) {
-                                filebanner.removeAttribute('required')
+                            // }
+                            // if (filebanner.files.length === 0) {
+                            //     filebanner.removeAttribute('required')
 
-                            }
+                            // }
 
 
-                            document.getElementById("imagePreview").src =
-                                "<?php echo $api_url; ?>uploads/vehicles/" +
-                                response[0]['picture'] + "";
-                            // Set the PDF file preview
-                            const pdfIcon =
-                                "<?php echo $api_url; ?>uploads/pdf-icon.png"; // Path to the PDF icon
-                            const pdfUrl = "<?php echo $api_url; ?>uploads/vehicles/" + response[0][
-                                'registration_document'
-                            ];
-                            const pdfPreviewContainer = document.getElementById('dropArea2');
-                            pdfPreviewContainer.innerHTML = `
-                                            <a href="${pdfUrl}" target="_blank">
-                                                <img src="${pdfIcon}" alt="PDF Icon" style="width: 100px; height: auto;">
-                                            </a>
-                                        `;
+                            // document.getElementById("imagePreview").src =
+                            //     "<?php echo $api_url; ?>uploads/vehicles/" +
+                            //     response[0]['picture'] + "";
+                            // // Set the PDF file preview
+                            // const pdfIcon =
+                            //     "<?php echo $api_url; ?>uploads/pdf-icon.png"; // Path to the PDF icon
+                            // const pdfUrl = "<?php echo $api_url; ?>uploads/vehicles/" + response[0][
+                            //     'registration_document'
+                            // ];
+                            // const pdfPreviewContainer = document.getElementById('dropArea2');
+                            // pdfPreviewContainer.innerHTML = `
+                            //                 <a href="${pdfUrl}" target="_blank">
+                            //                     <img src="${pdfIcon}" alt="PDF Icon" style="width: 100px; height: auto;">
+                            //                 </a>
+                            //             `;
 
                             $('#offcanvasRight').offcanvas('show')
 
@@ -759,21 +760,21 @@
 
                             table.row.add([
                                 index + 1,
-                                data.prime_mover_reg_no,
                                 data.trailer_reg_no,
-                                data.country_of_registration,
-                                '<a href="' + data.registration_document +
-                                '" target="_blank">View</a>',
-                                '<img src="" alt="Vehicle Image" width="50">',
-                                data.make,
-                                data.model,
-                                data.load_compartment_type,
-                                data.cooling_capacity,
-                                data.carrying_capacity,
-                                data.volume,
-                                data.no_of_axles,
-                                data.owned_by,
-                                data.created_by,
+                                // data.prime_mover_reg_no,
+                                // data.country_of_registration,
+                                // '<a href="' + data.registration_document +
+                                // '" target="_blank">View</a>',
+                                // '<img src="" alt="Vehicle Image" width="50">',
+                                // data.make,
+                                // data.model,
+                                // data.load_compartment_type,
+                                // data.cooling_capacity,
+                                // data.carrying_capacity,
+                                // data.volume,
+                                // data.no_of_axles,
+                                data.owner_name,
+                                data.created_by_name,
                                 '<button type="button" id="delete" name="delete" onclick="deleteData(' +
                                 data.id +
                                 ')" class="btn btn-soft-danger waves-effect waves-light"><i class="bx bx-trash-alt font-size-16 align-middle"></i></button>',
@@ -946,7 +947,7 @@
                 // Check the result
                 if (result) {
                     var settings = {
-                        "url": "<?php echo $api_url2; ?>delete/delete_users.php?key=03201232927&id=" + id + "",
+                        "url": "<?php echo $api_url2; ?>delete/delete_vehicle.php?key=03201232927&id=" + id + "",
                         "method": "DELETE",
                         "timeout": 0,
                     };
