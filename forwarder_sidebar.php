@@ -83,6 +83,26 @@
                                 data-key="t-level-1.16"> Trip Board</a></li> -->
                             </ul>
                         </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow">
+                                <span class="menu-item" data-key="t-multi-level">Purchase Orders</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="pending_purchase_orders.php" data-key="t-level-1.8"> Pending Purchase
+                                        Orders </a></li>
+                                <li><a href="approved_purchase_orders.php" data-key="t-level-1.8"> Approved Purchase
+                                        Orders </a></li>
+                                <!-- <li><a href="multiple_task.php" data-key="t-level-1.10"> Plan Task</a></li>
+                                <li><a href="manage_calander.php" data-key="t-level-1.12"> Task Calander</a></li>
+                                <li><a href="dealers_heri.php" data-key="t-level-1.13"> Retail Hierarchy</a></li>
+                                <li><a href="inspection_report.php" data-key="t-level-1.14">All Inspection</a></li>
+                                <li><a href="trip_board.php?from=<?php echo $current_date; ?>&to=<?php echo $next_dat; ?>"
+                                data-key="t-level-1.16"> Trip Board</a></li> -->
+                            </ul>
+                        </li>
+                        <!-- <li><a href="purchase_orders.php" data-key="t-level-1.8"> Purchase Orders </a></li> -->
+
+                        <!-- <li><a href="job_orders.php" data-key="t-level-1.8"> Job Orders </a></li> -->
                         <!-- <li>
                             <a href="javascript: void(0);" class="has-arrow">
                                 <span class="menu-item" data-key="t-multi-level">Manage Orders</span>
