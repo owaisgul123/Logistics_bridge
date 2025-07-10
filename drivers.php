@@ -25,6 +25,33 @@
 
 </head>
 <style>
+.dataTables_scrollBody {
+    scrollbar-width: auto;
+    /* For Firefox */
+    scrollbar-height: 15px;
+    /* For Firefox */
+}
+
+/* For Chrome/Edge/Safari */
+.dataTables_scrollBody::-webkit-scrollbar {
+    height: 15px;
+    /* Adjust this value to make scrollbar taller */
+}
+
+.view-scan-link {
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+.view-scan-link:hover {
+    text-decoration: underline;
+}
+
+.bx-show {
+    vertical-align: middle;
+    margin-right: 3px;
+}
+
 .password-container {
     position: relative;
     display: inline-block;
@@ -42,6 +69,11 @@
     right: 20px;
     transform: translateY(-50%);
     cursor: pointer;
+}
+
+.bg-danger-light {
+    background-color: rgba(220, 53, 69, 0.08);
+    /* Subtle red background */
 }
 </style>
 
@@ -141,168 +173,238 @@
         <div class="offcanvas-body">
             <div class="container-fluid">
                 <form method="post" id="insert_form" enctype="multipart/form-data">
-
-                    <div class="row mb-4">
+                    <div class="row mb-4 g-3">
+                        <!-- Added g-3 for consistent gutter spacing -->
 
                         <!-- Name -->
                         <div class="form-group col-md-6">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name"
+                            <label for="name" class="form-label mb-1">Name</label>
+                            <input type="text" class="form-control py-2" id="name" name="name"
                                 placeholder="Enter Driver Name" required>
                         </div>
 
                         <!-- Employee Number -->
                         <div class="form-group col-md-6">
-                            <label for="employee_no">Employee #</label>
-                            <input type="text" class="form-control" id="employee_no" name="employee_no"
+                            <label for="employee_no" class="form-label mb-1">Employee #</label>
+                            <input type="text" class="form-control py-2" id="employee_no" name="employee_no"
                                 placeholder="Enter Employee Number" required>
                         </div>
+
                         <!-- blood group -->
                         <div class="form-group col-md-6">
-                            <label for="blood_group">Blood Group</label>
-                            <input type="text" class="form-control" id="blood_group" name="blood_group"
+                            <label for="blood_group" class="form-label mb-1">Blood Group</label>
+                            <input type="text" class="form-control py-2" id="blood_group" name="blood_group"
                                 placeholder="Enter Blood Group" required>
                         </div>
+
                         <!-- Passport Number -->
                         <div class="form-group col-md-6">
-                            <label for="passport_no">Passport #</label>
-                            <input type="text" class="form-control" id="passport_no" name="passport_no"
+                            <label for="passport_no" class="form-label mb-1">Passport #</label>
+                            <input type="text" class="form-control py-2" id="passport_no" name="passport_no"
                                 placeholder="Enter Passport Number" required>
                         </div>
 
-                        <!-- Passport Scan -->
-                        <div class="form-group col-md-6">
-                            <label for="passport_scan">Passport Scan</label>
-                            <input type="file" class="form-control" id="passport_scan" name="passport_scan"
-                                accept=".pdf,.jpg,.png" required>
-                            <div id="passportArea">
-
-
-
-
-
-                                <img id="passportPreview" src="" alt="Image Preview">
-
-                                <!-- Contact Numbers -->
-                                <!-- Rest of your existing form fields -->
-
-
-
-
+                        <!-- Passport Scan - New Row Layout -->
+                        <div class="col-12">
+                            <div class="row align-items-center g-3">
+                                <div class="col-md-6">
+                                    <label for="passport_scan" class="form-label mb-1">Passport Scan</label>
+                                    <input type="file" class="form-control" id="passport_scan" name="passport_scan"
+                                        accept=".pdf,.jpg,.png" >
+                                    <input type="hidden" id="hidden_passport_scan" name="hidden_passport_scan"
+                                        value="">
+                                    </div>
+                                <div class="col-md-6">
+                                    <div id="passportArea" class="border p-2 text-center" style="min-height: 100px">
+                                        <img id="passportPreview" src="" alt="Passport Preview" class="img-fluid"
+                                            style="max-height: 100px; display: none;">
+                                        <small class="text-muted d-block mt-1">Preview will appear here</small>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <!-- National ID -->
                         <div class="form-group col-md-6">
-                            <label for="national_id">National ID #</label>
-                            <input type="text" class="form-control" id="national_id" name="national_id"
+                            <label for="national_id" class="form-label mb-1">National ID #</label>
+                            <input type="text" class="form-control py-2" id="national_id" name="national_id"
                                 placeholder="Enter National ID" required>
                         </div>
 
-                        <!-- National ID Scan -->
-                        <div class="form-group col-md-6">
-                            <label for="national_id_scan">National ID Scan</label>
-                            <input type="file" class="form-control" id="national_id_scan" name="national_id_scan"
-                                accept=".pdf,.jpg,.png" required>
-                            <div id="dropArea2">
-
-
-
-
-
-                                <img id="imagePreview" src="" alt="Image Preview">
-
-                                <!-- Contact Numbers -->
-                                <!-- Rest of your existing form fields -->
-
-
-
-
+                        <!-- National ID Scan - New Row Layout -->
+                        <div class="col-12">
+                            <div class="row align-items-center g-3">
+                                <div class="col-md-6">
+                                    <label for="national_id_scan" class="form-label mb-1">National ID Scan</label>
+                                    <input type="file" class="form-control" id="national_id_scan"
+                                        name="national_id_scan" accept=".pdf,.jpg,.png" >
+                                
+                                <input type="hidden" id="hidden_national_id_scan" name="hidden_national_id_scan"
+                                        value="">   
+                                     </div>
+                                <div class="col-md-6">
+                                    <div id="dropArea2" class="border p-2 text-center" style="min-height: 100px">
+                                        <img id="nationalIdPreview" src="" alt="National ID Preview" class="img-fluid"
+                                            style="max-height: 100px; display: none;">
+                                        <small class="text-muted d-block mt-1">Preview will appear here</small>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <!-- group ins card pic -->
-                        <div class="form-group col-md-6">
-                            <label for="group_ins">Group Insurance Card</label>
-                            <input type="file" class="form-control" id="group_ins" name="group_ins"
-                                accept=".pdf,.jpg,.png" required>
-                            <div id="group_ins">
 
-
-
-
-
-                                <img id="groupPreview" src="" alt="Image Preview">
-
-                                <!-- Contact Numbers -->
-                                <!-- Rest of your existing form fields -->
-
-
-
-
+                        <!-- Group Insurance Card - New Row Layout -->
+                        <div class="col-12">
+                            <div class="row align-items-center g-3">
+                                <div class="col-md-6">
+                                    <label for="group_ins" class="form-label mb-1">Group Insurance Card</label>
+                                    <input type="file" class="form-control" id="group_ins" name="group_ins"
+                                        accept=".pdf,.jpg,.png" >
+                                        <input type="hidden" id="hidden_group_ins" name="hidden_group_ins"
+                                        value="">
+                                </div>
+                                <div class="col-md-6">
+                                    <div id="group_insArea" class="border p-2 text-center" style="min-height: 100px">
+                                        <img id="groupInsPreview" src="" alt="Insurance Preview" class="img-fluid"
+                                            style="max-height: 100px; display: none;">
+                                        <small class="text-muted d-block mt-1">Preview will appear here</small>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <!-- Secuarity clearence pic -->
-                        <div class="form-group col-md-6">
-                            <label for="sec_clearence">Security Clearence</label>
-                            <input type="file" class="form-control" id="sec_clearence" name="sec_clearence"
-                                accept=".pdf,.jpg,.png" required>
-                            <div id="sec_clearenceArea2">
-
-
-
-
-
-                                <img id="sec_clearencePreview" src="" alt="Image Preview">
-
-                                <!-- Contact Numbers -->
-                                <!-- Rest of your existing form fields -->
-
-
-
-
+                        <!-- driver license -->
+                        <div class="col-12">
+                            <div class="row align-items-center g-3">
+                                <div class="col-md-6">
+                                    <label for="driver_license" class="form-label mb-1">Driver License</label>
+                                    <input type="file" class="form-control" id="driver_license" name="driver_license"
+                                        accept=".pdf,.jpg,.png" >
+                                    <input type="hidden" id="hidden_driver_license" name="hidden_driver_license"
+                                        value="">
+                                    </div>
+                                <div class="col-md-6">
+                                    <div id="driver_licenseArea" class="border p-2 text-center" style="min-height: 100px">
+                                        <img id="driver_licensePreview" src="" alt="Driver License Preview" class="img-fluid"
+                                            style="max-height: 100px; display: none;">
+                                        <small class="text-muted d-block mt-1">Preview will appear here</small>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <!--  -->
-                        <div class="form-group col-md-3">
-                            <label for="cell_1">Cell # 1</label>
-                            <input type="text" class="form-control" id="cell_1" name="cell_1"
-                                placeholder="Enter Cell Number" required>
+                        <!-- Security Clearance - New Row Layout -->
+                        <div class="col-12">
+                            <div class="row align-items-center g-3">
+                                <div class="col-md-6">
+                                    <label for="sec_clearence" class="form-label mb-1">Security Clearance</label>
+                                    <input type="file" class="form-control" id="sec_clearence" name="sec_clearence"
+                                        accept=".pdf,.jpg,.png" >
+                                    <input type="hidden" id="hidden_sec_clearence" name="hidden_sec_clearence"
+                                        value="">
+                                </div>
+                                <div class="col-md-6">
+                                    <div id="sec_clearenceArea2" class="border p-2 text-center"
+                                        style="min-height: 100px">
+                                        <img id="secClearancePreview" src="" alt="Clearance Preview" class="img-fluid"
+                                            style="max-height: 100px; display: none;">
+                                        <small class="text-muted d-block mt-1">Preview will appear here</small>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="form-group col-md-3">
-                            <label for="cell_2">Cell # 2</label>
-                            <input type="text" class="form-control" id="cell_2" name="cell_2"
-                                placeholder="Enter Cell Number">
-                        </div>
-
-                        <div class="form-group col-md-3">
-                            <label for="cell_3">Cell # 3</label>
-                            <input type="text" class="form-control" id="cell_3" name="cell_3"
-                                placeholder="Enter Cell Number">
-                        </div>
-
-                        <div class="form-group col-md-3">
-                            <label for="cell_4">Cell # 4</label>
-                            <input type="text" class="form-control" id="cell_4" name="cell_4"
-                                placeholder="Enter Cell Number">
-                        </div>
-
-                        <!-- Email -->
                         <div class="form-group col-md-6">
-                            <label for="email">Email Address</label>
-                            <input type="email" class="form-control" id="email" name="email"
+                            <label for="email" class="form-label mb-1">Email Address</label>
+                            <input type="email" class="form-control py-2" id="email" name="email"
                                 placeholder="Enter Email Address" required>
                         </div>
 
-                        <!-- Visa Country -->
-                        <!-- Created By -->
+                        <!-- Contact Numbers -->
+                        <div class="row">
+                            <!-- Contact Numbers Section -->
+                            <div class="col-md-12  pb-2 mt-3">
+                                <h6 class="fw-bold text-dark border-bottom pb-2 mb-3">Contact Numbers</h6>
+
+                                <div class="row g-3">
+                                    <!-- Cell #1 -->
+                                    <div class="col-md-6 col-lg-3">
+                                        <div class="form-group">
+                                            <label for="cell_1" class="form-label small text-dark">Pakistan
+                                                Number</label>
+                                            <div class="input-group border rounded">
+                                                <span class="input-group-text bg-light"><i
+                                                        class="bx bx-phone text-dark"></i></span>
+                                                <input type="text" class="form-control border-0" id="cell_1"
+                                                    name="cell_1" placeholder="+92 300 1234567" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Cell #2 -->
+                                    <div class="col-md-6 col-lg-3">
+                                        <div class="form-group">
+                                            <label for="cell_2" class="form-label small text-dark">Afghanistan
+                                                Number</label>
+                                            <div class="input-group border rounded">
+                                                <span class="input-group-text bg-light"><i
+                                                        class="bx bx-phone text-dark"></i></span>
+                                                <input type="text" class="form-control border-0" id="cell_2"
+                                                    name="cell_2" placeholder="+92 301 1234567">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Cell #3 -->
+                                    <div class="col-md-6 col-lg-3">
+                                        <div class="form-group">
+                                            <label for="cell_3" class="form-label small text-dark">Uzbakistan
+                                                Number</label>
+                                            <div class="input-group border rounded">
+                                                <span class="input-group-text bg-light"><i
+                                                        class="bx bx-phone text-dark"></i></span>
+                                                <input type="text" class="form-control border-0" id="cell_3"
+                                                    name="cell_3" placeholder="+92 302 1234567">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Cell #4 -->
+                                    <div class="col-md-6 col-lg-3">
+                                        <div class="form-group">
+                                            <label for="cell_4" class="form-label small text-dark">Tajikistan
+                                                Number</label>
+                                            <div class="input-group border rounded">
+                                                <span class="input-group-text bg-light"><i
+                                                        class="bx bx-phone text-dark"></i></span>
+                                                <input type="text" class="form-control border-0" id="cell_4"
+                                                    name="cell_4" placeholder="+92 303 1234567">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- russian number -->
+                                    <!-- <div class="col-md-6 col-lg-3">
+                <div class="form-group">
+                    <label for="cell_4" class="form-label small text-dark">Russian Number</label>
+                    <div class="input-group border rounded">
+                        <span class="input-group-text bg-light"><i class="bx bx-phone text-dark"></i></span>
+                        <input type="text" class="form-control border-0" id="cell_5" name="cell_5" 
+                               placeholder="+92 303 1234567">
+                    </div>
+                </div>
+            </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Email -->
+
+
+                        <!-- Hidden Fields -->
                         <input type="hidden" name="created_by" value="<?php echo $_SESSION['user_id']; ?>">
                         <input type="hidden" name="parent_id" value="<?php echo $_SESSION['user_id']; ?>">
                         <input type="hidden" name="row_id" id="row_id" value="0">
 
-
-                        <div class="col-md-12 text-center">
-                            <input class="btn btn-primary rounded-pill" id="insert" type="submit" value="Save Driver">
+                        <!-- Submit Button -->
+                        <div class="col-md-12 text-center mt-3">
+                            <input class="btn btn-primary rounded-pill px-4 py-2" id="insert" type="submit"
+                                value="Save Driver">
                         </div>
                     </div>
                 </form>
@@ -866,6 +968,7 @@
 
                     $('#name').val(response[0]['name']);
                     $('#employee_no').val(response[0]['employee_number']);
+                    $('#blood_group').val(response[0]['blood_group']);
                     $('#passport_no').val(response[0]['passport_number']);
                     $('#national_id').val(response[0]['national_id_number']);
                     $('#cell_1').val(response[0]['cell_1']);
@@ -877,7 +980,12 @@
                     $('#visa_number').val(response[0]['visa_number']);
                     $('#visa_expiry').val(response[0]['visa_expiry']);
                     $('#row_id').val(response[0]['id']);
-
+                    $('#hidden_passport_scan').val(response[0]['passport_scan']);
+                    $('#hidden_national_id_scan').val(response[0]['national_id_scan']);
+                    $('#hidden_driver_license').val(response[0]['driver_license']);
+                    $('#hidden_sec_clearence').val(response[0]['sec_clearence_cert']);
+                    $('#hidden_group_ins').val(response[0]['group_ins_card']);
+                    
                     // document.getElementById("imagePreview").src = ""
                     $('#row_id').val(response[0]['id']);
 
@@ -898,7 +1006,10 @@
                     //     response[0]['contract_file'] + "";
                     // Set the PDF file preview
                     const pdfIcon =
-                        "http://localhost/logistic_bridge_api/uploads/pdf-icon.png"; // Path to the PDF icon
+                        "http://localhost/logistic_bridge_api/uploads/drivers/" +
+                        response[0][
+                            'national_id_scan'
+                        ]; // Path to the PDF icon
                     const pdfUrl = "http://localhost/logistic_bridge_api/uploads/drivers/" +
                         response[0][
                             'national_id_scan'
@@ -920,7 +1031,7 @@
                     while (pdfPreviewContainer.firstChild) {
                         pdfPreviewContainer.removeChild(pdfPreviewContainer.firstChild);
                     }
-                    pdfImg.style.width = "100px";
+                    pdfImg.style.width = "150PX";
                     pdfImg.style.height = "auto";
 
                     pdfLink.appendChild(pdfImg);
@@ -939,13 +1050,89 @@
                     passportLink.target = "_blank";
 
                     const passportImg = document.createElement('img');
-                    passportImg.src = pdfIcon;
+                    passportImg.src = "http://localhost/logistic_bridge_api/uploads/drivers/" +
+                        response[0]['passport_scan'];
                     passportImg.alt = "PDF Icon";
-                    passportImg.style.width = "100px";
+                    passportImg.style.width = "150PX";
                     passportImg.style.height = "auto";
 
                     passportLink.appendChild(passportImg);
                     passportPreviewContainer.appendChild(passportLink);
+                    // sec clearence
+
+                    const secClearanceUrl = "http://localhost/logistic_bridge_api/uploads/drivers/" +
+                        response[0]['sec_clearence_cert'];
+                    const secClearanceContainer = document.getElementById('sec_clearenceArea2');
+                    secClearanceContainer.innerHTML = "";
+
+                    if (response[0]['sec_clearence_cert']) {
+                        const secClearanceLink = document.createElement('a');
+                        secClearanceLink.href = secClearanceUrl;
+                        secClearanceLink.target = "_blank";
+                        secClearanceLink.title = "View Security Clearance";
+
+                        const secClearanceImg = document.createElement('img');
+                        secClearanceImg.src = "http://localhost/logistic_bridge_api/uploads/drivers/" +
+                            response[0]['sec_clearence_cert'];; // Your PDF icon variable
+                        secClearanceImg.alt = "Security Clearance Certificate";
+                        secClearanceImg.className = "document-preview"; // Add consistent styling
+                        secClearanceImg.style.width = "150PX";
+                        secClearanceImg.style.height = "auto";
+
+                        secClearanceLink.appendChild(secClearanceImg);
+                        secClearanceContainer.appendChild(secClearanceLink);
+                    } else {
+                        secClearanceContainer.textContent = "No certificate uploaded";
+                    }
+
+                    const groupInsUrl = "http://localhost/logistic_bridge_api/uploads/drivers/" +
+                        response[0]['group_ins_card'];
+                    const groupInsContainer = document.getElementById('group_insArea');
+                    groupInsContainer.innerHTML = "";
+
+                    if (response[0]['group_ins_card']) {
+                        const groupInsLink = document.createElement('a');
+                        groupInsLink.href = groupInsUrl;
+                        groupInsLink.target = "_blank";
+                        groupInsLink.title = "View Group Insurance";
+
+                        const groupInsImg = document.createElement('img');
+                        groupInsImg.src = "http://localhost/logistic_bridge_api/uploads/drivers/" +
+                            response[0]['group_ins_card']; // Your PDF icon variable
+                        groupInsImg.alt = "Group Insurance Card";
+                        groupInsImg.className = "document-preview"; // Add consistent styling
+                        groupInsImg.style.width = "150px";
+                        groupInsImg.style.height = "auto";
+                        groupInsLink.appendChild(groupInsImg);
+                        groupInsContainer.appendChild(groupInsLink);
+                    } else {
+                        groupInsContainer.textContent = "No insurance card uploaded";
+                    }
+
+                    // driver license
+                    const driver_licenseUrl = "http://localhost/logistic_bridge_api/uploads/drivers/" +
+                        response[0]['driver_license'];
+                    const driver_licenseContainer = document.getElementById('driver_licenseArea');
+                    driver_licenseContainer.innerHTML = "";
+
+                    if (response[0]['driver_license']) {
+                        const driver_licenseLink = document.createElement('a');
+                        driver_licenseLink.href = driver_licenseUrl;
+                        driver_licenseLink.target = "_blank";
+                        driver_licenseLink.title = "View Driver License";
+
+                        const driver_licenseImg = document.createElement('img');
+                        driver_licenseImg.src = "http://localhost/logistic_bridge_api/uploads/drivers/" +
+                            response[0]['driver_license']; // Your PDF icon variable
+                        driver_licenseImg.alt = "Driver License";
+                        driver_licenseImg.className = "document-preview"; // Add consistent styling
+                        driver_licenseImg.style.width = "150px";
+                        driver_licenseImg.style.height = "auto";
+                        driver_licenseLink.appendChild(driver_licenseImg);
+                        driver_licenseContainer.appendChild(driver_licenseLink);
+                    } else {
+                        driver_licenseContainer.textContent = "No Driver License uploaded";
+                    }
 
                     $('#offcanvasRight').offcanvas('show');
 
@@ -975,6 +1162,7 @@
         const visaContainer = document.getElementById("visaContainer");
         visaContainer.innerHTML = ""; // Clear previous
         $('#driver_id').val(driver_id); // Set the driver_id in the form
+
         $.ajax({
             url: `<?php echo $api_url2?>get/driver_visas.php?key=03201232927&driver_id=${driver_id}`,
             method: "GET",
@@ -982,42 +1170,60 @@
                 response = JSON.parse(response);
 
                 if (response.status === "success" && Array.isArray(response.data)) {
+                    const today = new Date();
+                    const warningDate = new Date();
+                    warningDate.setDate(today.getDate() + 15); // 15 days from now
+
                     response.data.forEach((visa) => {
                         const visaEntry = document.createElement("div");
                         visaEntry.className = "visa-entry border p-3 mb-3";
+
+                        // Check if visa expires within 15 days
+                        const expiryDate = new Date(visa.expiry_date);
+                        const isExpiringSoon = expiryDate <= warningDate;
+
+                        // Add danger class if expiring soon
+                        if (isExpiringSoon) {
+                            visaEntry.classList.add("border-danger", "bg-danger-light");
+                        }
+
                         visaEntry.innerHTML = `
-                        <div class="row">
-                            <div class="form-group col-md-3">
-                                <label>Visa Country</label>
-                                <input type="text" class="form-control" name="visa_country[]" value="${visa.country}" required>
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label>Visa Number</label>
-                                <input type="text" class="form-control" name="visa_number[]" value="${visa.visa_number}" required>
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label>Visa Expiry</label>
-                                <input type="date" class="form-control" name="visa_expiry[]" value="${visa.expiry_date}" required>
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label>Visa Scan</label>
-                                <input type="file" class="form-control" name="visa_scan[]" accept=".pdf,.jpg,.png">
-                                <button type="button" class="btn btn-sm btn-danger mt-2 remove-visa">Remove</button>
-                            </div>
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label>Visa Country</label>
+                            <input type="text" class="form-control" name="visa_country[]" value="${visa.country}" required>
                         </div>
+                        <div class="form-group col-md-3">
+                            <label>Visa Number</label>
+                            <input type="text" class="form-control" name="visa_number[]" value="${visa.visa_number}" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Visa Expiry</label>
+                            <input type="date" class="form-control ${isExpiringSoon ? 'text-danger fw-bold' : ''}" 
+                                   name="visa_expiry[]" value="${visa.expiry_date}" required>
+                            ${isExpiringSoon ? '<span class="badge bg-danger ms-2">Expiring Soon</span>' : ''}
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Visa Scan</label>
+                            <input type = "hidden" name = "file_hidden[]" value = "${visa.visa_scan}">
+                            <input type="file" class="form-control" name="visa_scan[]" accept=".pdf,.jpg,.png">
+<div class="d-flex align-items-center">
+        <a href="http://localhost/logistic_bridge_api/uploads/visas/${visa.visa_scan}" class="view-scan-link me-2" target="_blank" >
+            <i class="bx bx-show"></i> View
+        </a>
+        <button type="button" class="btn btn-sm btn-danger remove-visa">Remove</button>
+    </div>                        </div>
+                    </div>
                     `;
                         visaContainer.appendChild(visaEntry);
                     });
-
                 }
             },
             error: function() {
                 // Swal.fire("Error", "Failed to fetch visa data.", "error");
             }
-
         });
         $('#visaoffcanvasRight').offcanvas('show');
-
     }
 
 

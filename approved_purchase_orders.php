@@ -26,6 +26,22 @@
 
 </head>
 <style>
+    /* Add this to your CSS file or style tag */
+/* For WebKit browsers (Chrome, Edge, Safari) */
+.dataTables_scrollBody::-webkit-scrollbar {
+  height: 12px; /* Increase the height */
+}
+
+.dataTables_scrollBody::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 8px;
+}
+
+/* Optional: hover effect */
+.dataTables_scrollBody::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .password-container {
     position: relative;
     display: inline-block;
