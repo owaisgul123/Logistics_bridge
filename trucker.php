@@ -87,12 +87,14 @@
                                     <tr>
                                         <th class="text-center">S.No</th>
                                         <th class="text-center">Trailer Reg No</th>
+                                        <th class="text-center">Chasis No</th>
+                                        <th class="text-center">Make</th>
+                                        <th class="text-center">Model</th>
+                                        <!-- <th class="text-center"</th> -->
                                         <!-- <th class="text-center">Prime Mover Reg No</th>
                                         <th class="text-center">Country of Registration</th>
                                         <th class="text-center">Registration Document</th>
                                         <th class="text-center">Picture</th>
-                                        <th class="text-center">Make</th>
-                                        <th class="text-center">Model</th>
                                         <th class="text-center">Load Compartment Type</th>
                                         <th class="text-center">Cooling Capacity</th>
                                         <th class="text-center">Carrying Capacity</th>
@@ -145,16 +147,16 @@
                 <form method="post" id="insert_form" enctype="multipart/form-data">
                     <div class="row mb-4">
                         <!-- Prime Mover Reg No -->
-                        <!-- <div class="form-group col-md-6">
-                            <label for="prime_mover_reg_no" style="margin: 8px 0px;">Prime Mover Reg No</label>
-                            <input type="text" class="form-control" id="prime_mover_reg_no" name="prime_mover_reg_no"
-                                placeholder="Enter Prime Mover Reg No" required>
-                        </div> -->
                         <!-- Trailer Reg No -->
                         <div class="form-group col-md-6">
                             <label for="trailer_reg_no" style="margin: 8px 0px;">Trailer Reg No</label>
                             <input type="text" class="form-control" id="trailer_reg_no" name="trailer_reg_no"
-                                placeholder="Enter Trailer Reg No" required>
+                            placeholder="Enter Trailer Reg No" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="chasis_no" style="margin: 8px 0px;">Prime Mover Reg No</label>
+                            <input type="text" class="form-control" id="chasis_no" name="chasis_no"
+                                placeholder="Enter Chasis No" required>
                         </div>
 
                         <!-- Country of Registration -->
@@ -165,17 +167,17 @@
                                 name="country_of_registration" placeholder="Enter Country of Registration" required>
                         </div> -->
                         <!-- Make -->
-                        <!-- <div class="form-group col-md-6">
+                        <div class="form-group col-md-6">
                             <label for="make" style="margin: 8px 0px;">Make</label>
                             <input type="text" class="form-control" id="make" name="make" placeholder="Enter Make"
                                 required>
-                        </div> -->
+                        </div>
                         <!-- Model -->
-                        <!-- <div class="form-group col-md-6">
+                        <div class="form-group col-md-6">
                             <label for="model" style="margin: 8px 0px;">Model</label>
                             <input type="text" class="form-control" id="model" name="model" placeholder="Enter Model"
                                 required>
-                        </div> -->
+                        </div>
                         <!-- Load Compartment Type -->
                         <!-- <div class="form-group col-md-6">
                             <label for="load_compartment_type" style="margin: 8px 0px;">Load Compartment Type</label>
@@ -761,13 +763,14 @@
                             table.row.add([
                                 index + 1,
                                 data.trailer_reg_no,
+                                data.chasis_no,
                                 // data.prime_mover_reg_no,
                                 // data.country_of_registration,
                                 // '<a href="' + data.registration_document +
                                 // '" target="_blank">View</a>',
                                 // '<img src="" alt="Vehicle Image" width="50">',
-                                // data.make,
-                                // data.model,
+                                data.make,
+                                data.model,
                                 // data.load_compartment_type,
                                 // data.cooling_capacity,
                                 // data.carrying_capacity,

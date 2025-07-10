@@ -170,7 +170,7 @@
                             </select>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="role" style="margin: 8px 0px;">Role</label>
+                            <label for="role" style="margin: 8px 0px;">Country</label>
                             <select class="form-control" id="country" name="country_id">
                                  <option >Select Country</option>
                                 <!--<option value=2>Trucking Company</option>
@@ -221,10 +221,7 @@
                             <label for="nature_of_business" style="margin: 8px 0px;">Nature of Business</label>
                             <input type="text" class="form-control" id="nature_of_business" name="nature_of_business" placeholder="Enter Nature of Business">
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="sub_role" style="margin: 8px 0px;">Sub Role</label>
-                            <input type="text" class="form-control" id="sub_role" name="sub_role" placeholder="Enter Sub Role">
-                        </div>
+                        
                         <div class="form-group col-md-6">
                             <label for="phone" style="margin: 8px 0px;">Phone</label>
                             <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Phone Number">
